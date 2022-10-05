@@ -12,9 +12,9 @@ using System.Threading;
 
 namespace SeleniumQuiz
 {
-    public class AddtoCart: CommonMethods
+    public class RegisterUser : CommonMethods
     {
-         By image = By.XPath("//*[@id='header']/div/div/div/div[1]/div/a/img");
+        By image = By.XPath("//*[@id='header']/div/div/div/div[1]/div/a/img");
         By products = By.XPath("//*[@id='header']/div/div/div/div[2]/div/ul/li[2]/a");
         By text = By.XPath("/html/body/section[2]/div/div/div[2]/div");
         By product1 = By.XPath("(//i[@class='fa fa-shopping-cart'])[2]");
@@ -24,10 +24,7 @@ namespace SeleniumQuiz
         By viewCart = By.XPath("//*[@id='cartModal']/div/div/div[2]/p[2]/a/u");
         By verify1 = By.XPath("//*[@id='product - 1']/td[2]/p");
         By verify2 = By.XPath("//*[@id='product - 2']/td[2]/h4/a");
-        public AddtoCart(IWebDriver driver)
-        {
-            this.driver = driver;
-        }
+        By cartPage = By.XPath("//*[@id='cartModal']/div/div/div[2]/p[1]");
 
         void clickProduct()
         {
@@ -53,16 +50,23 @@ namespace SeleniumQuiz
         {
             click(viewCart);
         }
-        public void AdditemToCart()
+     
+        public RegisterUser(IWebDriver driver)
+        {
+            this.driver = driver;
+        }
+
+        public void registerWhileCheckout()
         {
             extent.AttachReporter(report);
             ExtentTest test = extent.CreateTest("T6_signup with register user");
-
             OpenURL();
-            isElementDisplayed(image);
+
+            Assert.IsTrue(isElementDisplayed(image));
             clickProduct();
             scroll(text);
             addcart();
+            Assert.IsTrue(isElementDisplayed(cartPage));
             wait();
             clickcontinue();
             wait();
@@ -72,11 +76,8 @@ namespace SeleniumQuiz
             addcart2();
             wait();
             clickViewCart();
-            Assert.IsTrue(isElementDisplayed(verify1));
-            Assert.IsTrue(isElementDisplayed(verify2));
             extent.Flush();
             wait();
         }
-
     }
 }

@@ -36,6 +36,8 @@ namespace SeleniumQuiz
 
         public void subscription(string Email)
         {
+            extent.AttachReporter(report);
+            ExtentTest test = extent.CreateTest("T6_signup with register user");
             OpenURL();
             scroll(scrlelement);
             isElementDisplayed(subscriptionText);
@@ -46,7 +48,7 @@ namespace SeleniumQuiz
             //Taking a full - screen screenshot
             Screenshot screenshot = ((ITakesScreenshot)driver).GetScreenshot();
             screenshot.SaveAsFile(@".\\Screenshot1.png", ScreenshotImageFormat.Png);
-
+            extent.Flush();
         }
     }
 }

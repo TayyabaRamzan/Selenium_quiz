@@ -23,12 +23,16 @@ namespace SeleniumQuiz
 
         public void scrollUpandDown()
         {
+            extent.AttachReporter(report);
+            ExtentTest test = extent.CreateTest("T6_signup with register user");
+
             OpenURL();
             Assert.IsTrue(isElementDisplayed(image));
             scroll(scrlelement);
             //ScrollUP
             scroll(image);
             wait();
+            extent.Flush();
         }
 
     }

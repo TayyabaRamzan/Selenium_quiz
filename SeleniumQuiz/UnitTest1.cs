@@ -77,7 +77,7 @@ namespace SeleniumQuiz
 
             Invoice ss = new Invoice(driver);
 
-            ss.downloadinvoice("Tayyaba", "tayyabaramzan111@gmail.com", "tayyaba123", "tayyaba", "Ramzan", "Contour", "Askari", "Askari2", "Pakistan", "Lahore", "54000", "030765654343");
+            ss.downloadinvoice("Tayyaba", "tayyabaramzan34511@gmail.com", "tayyaba123", "tayyaba", "Ramzan", "Contour", "Askari", "Askari2", "Pakistan", "Lahore", "54000", "030765654343");
         }
 
         [TestMethod]
@@ -90,16 +90,16 @@ namespace SeleniumQuiz
             
 
         }
-        //[TestMethod]
-        //[DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML", "Quizdatafile.xml", "subscription", DataAccessMethod.Sequential)]
-        //public void T5_RegisterwhileCheckout()
-        //{
+        [TestMethod]
+        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML", "Quizdatafile.xml", "subscription", DataAccessMethod.Sequential)]
+        public void T5_RegisterwhileCheckout()
+        {
 
-        //    Invoice ss = new Invoice(driver);
-        //    string emailaddress = TestContext.DataRow["Emailid"].ToString();
-        //    ss.downloadinvoice();
+            RegisterUser ss = new RegisterUser(driver);
+            string emailaddress = TestContext.DataRow["Emailid"].ToString();
+            ss.registerWhileCheckout();
 
-        //}
+        }
         [TestMethod]
         [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML", "Quizdatafile.xml", "signupwithregisteresEmail", DataAccessMethod.Sequential)]
         public void T6_RegisterUserwithExistingEmail()

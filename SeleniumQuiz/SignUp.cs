@@ -181,8 +181,8 @@ namespace SeleniumQuiz
 
         public void signup(string name, string email,string Password, string FirstName, string Lastname, string Company, string Adress1, string Adress2, string State, string City, string zipCode, string mobile)
         {
-            //extent.AttachReporter(report);
-            //ExtentTest test = extent.CreateTest("FYP_T1_Verify sign up button is clickable and functional");
+            extent.AttachReporter(report);
+            ExtentTest test = extent.CreateTest("T1_Register User");
 
             //Program.log.Info("Launch the Website ");
             OpenURL();
@@ -215,11 +215,13 @@ namespace SeleniumQuiz
             clickcreateAccount();
             clickContinue();
             wait();
-           
+            extent.Flush();
         }
         public void signupregister(string name, string email)
         {
-            
+            extent.AttachReporter(report);
+            ExtentTest test = extent.CreateTest("T6_signup with register user");
+
             OpenURL();
             isElementDisplayed(image);
             signUpClick();
@@ -228,7 +230,7 @@ namespace SeleniumQuiz
             signupclick();
             isElementDisplayed(message);
             wait();
-
+            extent.Flush();
         }
     }
 }

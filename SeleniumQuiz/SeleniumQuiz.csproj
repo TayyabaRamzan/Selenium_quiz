@@ -456,6 +456,7 @@
     <Compile Include="AddtoCart.cs" />
     <Compile Include="CommonMethods.cs" />
     <Compile Include="Invoice.cs" />
+    <Compile Include="RegisterUser.cs" />
     <Compile Include="ScrollUpDown.cs" />
     <Compile Include="SignUp.cs" />
     <Compile Include="Subscription.cs" />

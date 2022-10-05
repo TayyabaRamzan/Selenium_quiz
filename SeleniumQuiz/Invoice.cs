@@ -212,6 +212,9 @@ namespace SeleniumQuiz
        
         public void downloadinvoice(string name, string email, string Password, string FirstName, string Lastname, string Company, string Adress1, string Adress2, string State, string City, string zipCode, string mobile)
         {
+            extent.AttachReporter(report);
+            ExtentTest test = extent.CreateTest("T6_signup with register user");
+
             OpenURL();
             Assert.IsTrue(isElementDisplayed(image));
             scroll(text);
@@ -250,7 +253,9 @@ namespace SeleniumQuiz
             scroll(scrl2);
             clickcreateAccount();
             clickContinue();
-            //wait();
+            extent.Flush();
+            wait();
+            
         }
 
     }
