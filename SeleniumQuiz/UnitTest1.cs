@@ -77,7 +77,7 @@ namespace SeleniumQuiz
 
             Invoice ss = new Invoice(driver);
 
-            ss.downloadinvoice("Tayyaba", "tayyabaramzan34511@gmail.com", "tayyaba123", "tayyaba", "Ramzan", "Contour", "Askari", "Askari2", "Pakistan", "Lahore", "54000", "030765654343");
+            ss.downloadinvoice("Tayyaba", "tayyzzabaramzan34511@gmail.com", "tayyaba123", "tayyaba", "Ramzan", "Contour", "Askari", "Askari2", "Pakistan", "Lahore", "54000", "030765654343");
         }
 
         [TestMethod]

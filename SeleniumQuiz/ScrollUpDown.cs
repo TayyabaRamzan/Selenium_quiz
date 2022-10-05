@@ -24,7 +24,7 @@ namespace SeleniumQuiz
         public void scrollUpandDown()
         {
             extent.AttachReporter(report);
-            ExtentTest test = extent.CreateTest("T6_signup with register user");
+            ExtentTest test = extent.CreateTest("T7_scroll up and down");
 
             OpenURL();
             Assert.IsTrue(isElementDisplayed(image));

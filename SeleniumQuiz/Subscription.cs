@@ -38,14 +38,21 @@ namespace SeleniumQuiz
         {
             extent.AttachReporter(report);
             ExtentTest test = extent.CreateTest("T6_signup with register user");
+            UnitTest1.log.Info("step1: Launch the Website ");
             OpenURL();
+            UnitTest1.log.Info("Website launched successfully");
+            UnitTest1.log.Info("scroll to an elemment");
             scroll(scrlelement);
+            UnitTest1.log.Info("element is displayed");
             isElementDisplayed(subscriptionText);
+            UnitTest1.log.Info("Enter email address");
             enterEmail(Email);
+            UnitTest1.log.Info("click on arrow button");
             clickArrow();
             //isElementDisplayed();
             wait();
             //Taking a full - screen screenshot
+            UnitTest1.log.Info("take screenshot and save ");
             Screenshot screenshot = ((ITakesScreenshot)driver).GetScreenshot();
             screenshot.SaveAsFile(@".\\Screenshot1.png", ScreenshotImageFormat.Png);
             extent.Flush();

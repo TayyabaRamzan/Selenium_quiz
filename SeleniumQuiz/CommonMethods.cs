@@ -20,8 +20,7 @@ namespace SeleniumQuiz
         public ExtentHtmlReporter report = new ExtentHtmlReporter("C://Users//ramzatay//source//repos//SeleniumQuiz//SeleniumQuiz//Report//" + DateTime.Now.ToString("ddMMyyyy"));
         public AventStack.ExtentReports.ExtentReports extent = new AventStack.ExtentReports.ExtentReports();
 
-        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-
+        public static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public IWebDriver driver;
         Actions actions;
 
