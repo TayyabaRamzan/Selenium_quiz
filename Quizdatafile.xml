@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<SeleniumQuiz>
+	<Execution>
+		<signupforvalid>
+			<name>Tayyaba</name>
+			<email>tayyyabaramaazaaan749f95@gmail.com</email>
+			<password>tayyaba@123</password>
+			<firstname>Tayyaba</firstname>
+			<lastname>Ramzan</lastname>
+			<Company>Contour</Company>
+			<Adress1>askariTower</Adress1>
+			<Adress2>Liberty</Adress2>
+			<State>Pakistan</State>
+			<City>Lahore</City>
+			<zipCode>5400</zipCode>
+			<mobile>030723456678</mobile>
+		</signupforvalid>
+		<subscription>
+			<Emailid>tayyabaraaamzan1115@gmail.com</Emailid>
+		</subscription>
+		<signupwithregisteresEmail>
+			<name>Tayyaba</name>
+			<email>tayyabaramzan1516@gmail.com</email>
+		</signupwithregisteresEmail>
+		</Execution>
+</SeleniumQuiz>
