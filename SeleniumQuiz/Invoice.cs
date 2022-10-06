@@ -61,7 +61,7 @@ namespace SeleniumQuiz
         By create = By.XPath("//*[@id='form']/div/div/div/div[1]/form/button");
         By continues = By.LinkText("Continue");
 
-        By cart = By.XPath("//*[@id='header'']/div/div/div/div[2]/div/ul/li[3]/a/i");
+        By cart = By.XPath("//*[@id='header']/div/div/div/div[2]/div/ul/li[3]/a");
         By Acc_details = By.XPath("//*[@id='address_delivery']/li[2]");
 
         By desc = By.XPath("//*[@id='ordermsg']/textarea");

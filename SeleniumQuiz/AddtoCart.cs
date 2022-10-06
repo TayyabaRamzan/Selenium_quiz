@@ -56,7 +56,7 @@ namespace SeleniumQuiz
         public void AdditemToCart()
         {
             extent.AttachReporter(report);
-            ExtentTest test = extent.CreateTest("T6_signup with register user");
+            ExtentTest test = extent.CreateTest("T4_Add To Cart");
 
             OpenURL();
             isElementDisplayed(image);
@@ -74,7 +74,7 @@ namespace SeleniumQuiz
             clickViewCart();
             Assert.IsTrue(isElementDisplayed(verify1));
             Assert.IsTrue(isElementDisplayed(verify2));
-            extent.Flush();
+            //extent.Flush();
             wait();
         }
 
