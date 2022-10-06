@@ -37,24 +37,27 @@ namespace SeleniumQuiz
         public void subscription(string Email)
         {
             extent.AttachReporter(report);
-            ExtentTest test = extent.CreateTest("T6_signup with register user");
-            UnitTest1.log.Info("step1: Launch the Website ");
+            ExtentTest test = extent.CreateTest("T2_verify subscription");
+
+
+            Program.log.Info("step1: Launch the Website ");
             OpenURL();
-            UnitTest1.log.Info("Website launched successfully");
-            UnitTest1.log.Info("scroll to an elemment");
+            Program.log.Info("Website launched successfully");
+            Program.log.Info("scroll to an elemment");
             scroll(scrlelement);
-            UnitTest1.log.Info("element is displayed");
+            Program.log.Info("element is displayed");
+            
             isElementDisplayed(subscriptionText);
-            UnitTest1.log.Info("Enter email address");
+            Program.log.Info("Enter email address");
             enterEmail(Email);
-            UnitTest1.log.Info("click on arrow button");
+            Program.log.Info("click on arrow button");
             clickArrow();
             //isElementDisplayed();
             wait();
             //Taking a full - screen screenshot
-            UnitTest1.log.Info("take screenshot and save ");
+            Program.log.Info("Take screenshot and save ");
             Screenshot();
-            extent.Flush();
+            //extent.Flush();
         }
     }
 }
