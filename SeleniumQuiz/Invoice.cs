@@ -16,9 +16,10 @@ namespace SeleniumQuiz
     {
         By image = By.XPath("//*[@id='header']/div/div/div/div[1]/div/a/img");
         By cartPage = By.XPath("//*[@id='cartModal']/div/div/div[2]/p[1]");
-
+        By login_as_user = By.XPath("//*[@id='header']/div/div/div/div[2]/div/ul/li[10]/a/b");
         By text = By.XPath("/html/body/section[2]/div/div/div[2]/div");
 
+        By scl = By.XPath("//*[@id='cart_items']/div/div[7]/a");
         By viewprod = By.XPath("/html/body/section[2]/div/div/div[2]/div/div[2]/div/div[2]/ul/li/a");
         By additem = By.XPath("/html/body/section/div/div/div[2]/div[2]/div[2]/div/span/button");
         By viewCart = By.XPath("//*[@id='cartModal']/div/div/div[2]/p[2]/a/u");
@@ -32,6 +33,7 @@ namespace SeleniumQuiz
         By name = By.XPath("//*[@id='form']/div/div/div[3]/div/form/input[2]");
         By email = By.XPath("//*[@id='form']/div/div/div[3]/div/form/input[3]");
         By signupbutton = By.XPath("//*[@id='form']/div/div/div[3]/div/form/button");
+        By acc_created = By.XPath("//*[@id='form']/div/div/div/h2/b");
 
         By Mrs = By.Id("id_gender2");
         By pass = By.Id("password");
@@ -58,14 +60,28 @@ namespace SeleniumQuiz
         By mobile = By.Id("mobile_number");
         By create = By.XPath("//*[@id='form']/div/div/div/div[1]/form/button");
         By continues = By.LinkText("Continue");
-        By message = By.XPath("//*[@id='form']/div/div/div[3]/div/form/p");
+
+        By cart = By.XPath("//*[@id='header'']/div/div/div/div[2]/div/ul/li[3]/a/i");
+        By Acc_details = By.XPath("//*[@id='address_delivery']/li[2]");
+
+        By desc = By.XPath("//*[@id='ordermsg']/textarea");
+
+        By name_on_card = By.Name("name_on_card");
+        By card_number = By.Name("card_number");
+        By cvc = By.Name("cvc");
+        By exp_month = By.Name("expiry_month");
+        By exp_year = By.Name("expiry-year");
+        By P_C_Order = By.Id("submit");
+        By orderPlaced = By.XPath("//*[@id='form']/div/div/div/h2/b");
+
+
         public Invoice(IWebDriver driver)
         {
             this.driver = driver;
         }
 
         
-        void addtocart()
+        void addproducttocart()
         {
             click(viewprod);
             click(additem);
@@ -209,27 +225,64 @@ namespace SeleniumQuiz
             click(continues);
         }
 
-       
+        void clickcart()
+        {
+            click(cart);
+        }
+        void CommentDescription(string Dinput)
+        {
+            typetext(desc, Dinput);
+        }
+        void clickPlaceOrdr()
+        {
+            click(scl);
+        }
+        void EnternameOnCard(string Ninput)
+        {
+            typetext(name_on_card, Ninput);
+        }
+        void cardnumber(string Card)
+        {
+            typetext(card_number, Card);
+        }
+        void entecvc(string Card)
+        {
+            typetext(cvc, Card);
+        }
+        void expiryMonth(string Card)
+        {
+            typetext(exp_month, Card);
+        }
+        void expiryYear(string Card)
+        {
+            typetext(exp_year, Card);
+        }
+        void clickPayandConfirmOder()
+        {
+            click(P_C_Order);
+        }
+        
+
+
         public void downloadinvoice(string name, string email, string Password, string FirstName, string Lastname, string Company, string Adress1, string Adress2, string State, string City, string zipCode, string mobile)
         {
             extent.AttachReporter(report);
-            ExtentTest test = extent.CreateTest("T6_signup with register user");
+            ExtentTest test = extent.CreateTest("T3_Download invoice ");
 
             OpenURL();
             Assert.IsTrue(isElementDisplayed(image));
             scroll(text);
-            addtocart();
-            isElementDisplayed(cartPage);
+            addproducttocart();
+            //Add Product to cart
+            Assert.IsTrue(isElementDisplayed(cartPage));
             wait();
             clickViewCart();
             clickProceedtoCheckout();
             wait();
             clickRegister();
-            signUpClick();
             inputName(name);
             inputEmail(email);
             signupclick();
-            isElementDisplayed(image);
             selectMrs();
             inputpass(Password);
             selectday();
@@ -252,7 +305,34 @@ namespace SeleniumQuiz
             enterMobile(mobile);
             scroll(scrl2);
             clickcreateAccount();
+
+            //Assertion for ' Account created'
+            Assert.IsTrue(isElementDisplayed(acc_created));
             clickContinue();
+
+            //Verify Login as username is displayed
+            Assert.IsTrue(isElementDisplayed(login_as_user));
+
+            clickcart();
+            clickProceedtoCheckout();
+
+            //Verify address details
+            Assert.IsTrue(isElementDisplayed(Acc_details));
+
+            CommentDescription("Order is Confirmed");
+            
+            scroll(scl);
+            clickPlaceOrdr();
+            EnternameOnCard("tayyaba");
+            cardnumber("14352673663637");
+            entecvc("234");
+            expiryMonth("12");
+            expiryYear("2020");
+            clickPayandConfirmOder();
+            //Verify order is placed
+            Assert.IsTrue(isElementDisplayed(orderPlaced));
+
+
             extent.Flush();
             wait();
             
