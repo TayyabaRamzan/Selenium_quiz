@@ -1,0 +1,7 @@
+2022-10-06 11:21:55,216 [12] INFO SeleniumQuiz.Program - step1: Launch the Website 
+2022-10-06 11:22:00,854 [12] INFO SeleniumQuiz.Program - Website launched successfully
+2022-10-06 11:22:00,856 [12] INFO SeleniumQuiz.Program - scroll to an elemment
+2022-10-06 11:22:01,001 [12] INFO SeleniumQuiz.Program - element is displayed
+2022-10-06 11:22:01,203 [12] INFO SeleniumQuiz.Program - Enter email address
+2022-10-06 11:22:01,487 [12] INFO SeleniumQuiz.Program - click on arrow button
+2022-10-06 11:22:04,075 [12] INFO SeleniumQuiz.Program - Take screenshot and save 
