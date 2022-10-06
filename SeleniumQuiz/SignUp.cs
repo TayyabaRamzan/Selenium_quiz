@@ -16,11 +16,16 @@ namespace SeleniumQuiz
 
 
         By image = By.XPath("//*[@id='header']/div/div/div/div[1]/div/a/img");
+        By newuser = By.XPath("//*[@id='form']/div/div/div[3]/div/h2");
+        By acc_info = By.XPath("//*[@id='form']/div/div/div/div[1]/h2/b");
+        By acc_created = By.XPath("//*[@id='form']/div/div/div/h2/b");
+        By login_as_user = By.XPath("//*[@id='header']/div/div/div/div[2]/div/ul/li[10]/a/b");
+
         By signUpButton = By.XPath("//li//a[@href='/login']");
         By name = By.XPath("//*[@id='form']/div/div/div[3]/div/form/input[2]");
         By email = By.XPath("//*[@id='form']/div/div/div[3]/div/form/input[3]");
         By signupbutton = By.XPath("//*[@id='form']/div/div/div[3]/div/form/button");
-
+        
         By Mrs = By.Id("id_gender2");
         By pass = By.Id("password");
         By day = By.Id("days");
@@ -186,11 +191,17 @@ namespace SeleniumQuiz
 
             //Program.log.Info("Launch the Website ");
             OpenURL();
+            //Assertion for homepage diplay
+            Assert.IsTrue(isElementDisplayed(image));
             signUpClick();
+            //Assertion for new user signup
+            Assert.IsTrue(isElementDisplayed(newuser));
             inputName(name);
             inputEmail(email);
             signupclick();
-            isElementDisplayed(image);
+
+            //Assertion for 'Enter Account Information'
+            Assert.IsTrue(isElementDisplayed(acc_info));
             selectMrs();
             inputpass(Password);
             selectday();
@@ -213,7 +224,12 @@ namespace SeleniumQuiz
             enterMobile(mobile);
             scroll(scrl2);
             clickcreateAccount();
+            //Assertion for ' Account created'
+            Assert.IsTrue(isElementDisplayed(acc_created));
+
             clickContinue();
+            //Verify Login as username is displayed
+            Assert.IsTrue(isElementDisplayed(login_as_user));
             wait();
             extent.Flush();
         }
@@ -223,12 +239,12 @@ namespace SeleniumQuiz
             ExtentTest test = extent.CreateTest("T6_signup with register user");
 
             OpenURL();
-            isElementDisplayed(image);
+            Assert.IsTrue(isElementDisplayed(image));
             signUpClick();
             inputName(name);
             inputEmail(email);
             signupclick();
-            isElementDisplayed(message);
+            Assert.IsTrue(isElementDisplayed(message));
             wait();
             extent.Flush();
         }

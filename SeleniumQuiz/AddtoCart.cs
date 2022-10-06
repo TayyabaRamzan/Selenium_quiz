@@ -22,8 +22,8 @@ namespace SeleniumQuiz
         By product2 = By.XPath("(//i[@class='fa fa-shopping-cart'])[4]");
         By product3 = By.XPath("(//i[@class='fa fa-shopping-cart'])[6]");
         By viewCart = By.XPath("//*[@id='cartModal']/div/div/div[2]/p[2]/a/u");
-        By verify1 = By.XPath("//*[@id='product - 1']/td[2]/p");
-        By verify2 = By.XPath("//*[@id='product - 2']/td[2]/h4/a");
+        By verify1 = By.XPath("//*[@id='product-1']/td[2]/h4/a");
+        By verify2 = By.XPath("//*[@id='product-2']/td[2]/h4/a");
         public AddtoCart(IWebDriver driver)
         {
             this.driver = driver;

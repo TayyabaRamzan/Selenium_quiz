@@ -100,5 +100,24 @@ namespace SeleniumQuiz
             IWebElement element = findElement(locator);
             actions.MoveToElement(element).Build().Perform();
         }
+        public void Screenshot()
+        {
+            Screenshot screenshot = ((ITakesScreenshot)driver).GetScreenshot();
+            screenshot.SaveAsFile(@".\\Screenshot.png", ScreenshotImageFormat.Png);
+        }
+        public void scrollUp()
+        {
+            // Scroll Top
+
+            IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
+            js.ExecuteScript("window.scrollTo(0, document." + "head" + ".scrollHeight);");
+        }
+        public void scrolldown()
+        {
+            // Scroll Down
+
+            IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
+            js.ExecuteScript("window.scrollTo(20, document." + "head" + ".scrollHeight);");
+        }
     }
 }

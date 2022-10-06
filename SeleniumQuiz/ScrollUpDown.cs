@@ -28,9 +28,13 @@ namespace SeleniumQuiz
 
             OpenURL();
             Assert.IsTrue(isElementDisplayed(image));
+
+            //Scroll down
             scroll(scrlelement);
-            //ScrollUP
-            scroll(image);
+            wait();
+            //Scroll up
+            scrollUp();
+           
             wait();
             extent.Flush();
         }

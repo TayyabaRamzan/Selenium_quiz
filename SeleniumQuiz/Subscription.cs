@@ -53,8 +53,7 @@ namespace SeleniumQuiz
             wait();
             //Taking a full - screen screenshot
             UnitTest1.log.Info("take screenshot and save ");
-            Screenshot screenshot = ((ITakesScreenshot)driver).GetScreenshot();
-            screenshot.SaveAsFile(@".\\Screenshot1.png", ScreenshotImageFormat.Png);
+            Screenshot();
             extent.Flush();
         }
     }
